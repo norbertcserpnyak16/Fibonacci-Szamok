@@ -7,15 +7,13 @@ namespace Fibonacci
     {
         static void Main(string[] args)
         {
-            long[] Fibonacci_numbers = new long[91];
-            Fibonacci_numbers[0] = 1; Fibonacci_numbers[1] = 1;
-            for (int i = 2; i < 91; i++)
+            for (int a = 0, b = 1, i = 0; i < 91; i++)
             {
-                Fibonacci_numbers[i] = Fibonacci_numbers[i - 2] + Fibonacci_numbers[i - 1];
-            }
-            for (int i = 0; i < 91; i++)
-            {
-                Console.WriteLine($"A {i + 1}. Fibonacci-szám: {Fibonacci_numbers[i]}");
+                // B (kovetkezo fib. szam) = a jelenlegi ketto osszege
+                b = a + b;
+                // A (elozo fib. szam) = a regi B = ujB - a
+                a = b - a;
+                Console.WriteLine($"A(z) {i + 1}. Fibonacci szám: {a}");
             }
             Console.ReadLine();
         }
